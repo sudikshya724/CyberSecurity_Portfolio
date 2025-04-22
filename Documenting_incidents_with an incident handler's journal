@@ -1,0 +1,38 @@
+Incident Handler’s Journal
+Date: July 23, 2024
+Entry #: 1
+
+An explanation
+ A ransomware assault against a healthcare business was the subject of a recent cybersecurity event that is detailed in this entry.  The event serves as a reminder of the grave dangers posed by phishing and illegal system access.
+
+ No tool or tools were used.
+
+ The Incident's Five W's
+ Who: A well-organized gang of malevolent hackers
+
+ What: An attack using ransomware
+
+ Where: In the IT environment of a healthcare firm
+
+ When: 9:00 a.m. on Tuesday.
+
+ Why: The attackers used a phishing email to take advantage of the company's systems.  After gaining access, they encrypted important system data using ransomware. 
+ The fact that a ransom note requesting a large sum of money in return for the decryption key was left suggests that money was the driving force.
+Additional Notes
+What could have been done to avoid this?
+
+ Providing thorough phishing awareness training to staff members
+
+ Employing email filtering tools to identify and stop harmful links or attachments
+
+ Using multi-factor authentication to safeguard sensitive system access
+
+ Maintaining regular offline backups of important data
+
+ utilizing endpoint detection and response (EDR) techniques to keep an eye out for anomalous activities
+
+ Does the business have to pay the ransom?
+
+ In general, it is not advised to pay the ransom.  This does not ensure file retrieval and instead promotes further illicit conduct. 
+To prevent similar breaches in the future, the organization should instead work with law enforcement, 
+try to restore from backups, and carry out a thorough investigation into how the breach happened.
