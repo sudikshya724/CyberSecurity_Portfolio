@@ -1,66 +1,65 @@
-Apply Filters to SQL Queries
-Project Overview
-As part of our organization’s efforts to improve system security, I was responsible for investigating potential threats, applying updates to employee computers, and 
-using SQL to retrieve specific data. Below are examples of how I utilized filtered SQL queries to carry out security-related tasks.
+Use Filters in SQL Inquiries
+ Overview of the Project
+ I was in charge of looking into possible dangers, updating staff PCs, and using SQL to get particular data as part of our company's attempts to strengthen system security.  
+Here are some instances of how I performed security-related duties using filtered SQL queries.
 
 
 
-1. Retrieve Failed Login Attempts After Business Hours
-To investigate a possible security issue that took place outside regular working hours (after 18:00), I wrote a SQL query to identify failed login attempts during that time frame.
+ 1. Recover unsuccessful attempts to log in after business hours
+ I created a SQL query to find unsuccessful login attempts made after 18:00 in order to look into a potential security issue that occurred outside of usual business hours.
 
-I started by selecting all records from the log_in_attempts table. Then, I applied a WHERE clause with an AND condition to narrow down the results to those where login attempts happene
-
+ To begin, I chose every entry in the log_in_attempts table.  To limit the results to those where login attempts occur, I then used a WHERE clause with an AND condition.
 The condition login_time > '18:00' ensures the query targets only attempts made after business hours.
 
 The condition success = FALSE isolates failed attempts.
 
-2. Retrieve Login Attempts on Specific Dates
-Following a suspicious event that took place on 2022-05-09, I needed to look into login activity on both that day and the day before.
+Only attempts made after business hours are targeted by the query thanks to the criterion login_time > '18:00'.
 
-To do this, I used a SQL query that filtered login attempts based on specific dates.
+ The failed attempts are isolated by the criterion success = FALSE.
 
-Using the OR operator in the WHERE clause, I included both login_date = '2022-05-09' and login_date = '2022-05-08'.
-This helped capture all relevant login records for further analysis.
+ 2. Get Login Attempts for Particular Dates
+ I needed to investigate login activities on 2022-05-09 and the day prior after a suspicious incident occurred on that day.
 
-3. Retrieve Login Attempts from Outside Mexico
-After reviewing login data, I identified potential concerns regarding access attempts from outside of Mexico. These needed further investigation.
+ I accomplished this by using a SQL query that filtered login attempts according to particular dates.
 
-I wrote a SQL query to filter login attempts that occurred in countries other than Mexico.
+ I added both login_date = '2022-05-09' and login_date = '2022-05-08' to the WHERE clause using the OR operator.
+ This made it easier to gather all pertinent login data for additional examination.
 
-I used the NOT keyword combined with LIKE 'MEX%' to filter out any records where the country was listed as either MEX or MEXICO.
+3. Get Attempts to Login from Outside Mexico
+ I found possible issues with access attempts from outside of Mexico after looking over login data.  These required more research.
 
-The % wildcard allows the query to match any value starting with "MEX."
+ To filter login attempts from nations other than Mexico, I created a SQL query.
 
-4. Retrieve Employees in the Marketing Department (East Building)
-To prepare for a scheduled update on employee machines in the Marketing department, I needed to identify who works in that department and in the East building.
+ I filtered out any records where the nation was specified as either MEX or MEXICO by combining the NOT keyword with LIKE 'MEX%'.
 
-I created a SQL query to extract this information by selecting from the employees table.
+ With the use of the % wildcard, the query may match any value that begins with "MEX."
+4. Get the Marketing Department Staff Back (East Building)
+ I had to determine who works in the Marketing department and in the East building in order to get ready for a planned upgrade on employee machines in that department.
 
-I applied a WHERE clause using AND to combine the two conditions:
+ To get this data, I constructed a SQL query that selected from the employees table.
 
-department = 'Marketing'
+ I combined the two conditions by applying a WHERE clause with AND:
 
-office LIKE 'East%'
+ 'Marketing' as the department
 
-The LIKE clause with East% helped filter for employees located in the East building based on office codes.
+ office LIKE 'East%'
 
-5. Retrieve Employees in Finance or Sales Departments
-For a different update, I needed information on employees working in either the Finance or Sales departments.
+ Based on office codes, the LIKE clause with East% assisted in filtering for workers who were based in the East building.
 
-I accomplished this by querying the employees table and applying a WHERE clause with the OR operator:
+ 5. Obtain Workers in the Sales or Finance Divisions
+ I required details about workers in the finance or sales departments for another update.
+I did this by using the OR operator to add a WHERE clause to a query in the employees table:
 
-department = 'Finance' OR department = 'Sales'
-This approach ensured that employees from both departments were included in the output.
+ 'Finance' OR 'Sales' as the department
+ This strategy made sure that workers from both divisions contributed to the final product.
 
-6. Retrieve Employees Not in the IT Department
-The final update targeted employees outside of the Information Technology department. To gather this data, I used a SQL query to exclude IT employees.
+ 6. Get Workers Back  Not in the Department of Information Technology
+ Employees outside of the information technology department were the focus of the last update.  I used a SQL query to filter out IT workers in order to collect this data.
 
-I applied the NOT operator in the WHERE clause:
+ In the WHERE clause, I used the NOT operator:
 
-NOT department = 'Information Technology'
-This filtered the results to show only those outside the IT department.
-
-Summary
-Throughout this project, I used SQL queries to filter data based on specific security and operational requirements. Working with both the log_in_attempts and employees tables,
-I applied logical operators such as AND, OR, and NOT, as well as pattern matching using LIKE and %. These filters enabled precise targeting of the data needed to identify security threats and 
-manage employee systems effectively.
+ 'Information Technology' is not the department.
+ Only results from people outside the IT department were displayed as a consequence of this filter.
+In brief
+ I filtered data using SQL queries throughout this project in accordance with particular operational and security needs.  I used pattern matching using LIKE and %, as well as logical operators like AND, OR, and NOT, while working with the log_in_attempts and employees tables.  
+These filters made it possible to precisely focus the data required to recognize security risks and efficiently manage staff systems.
