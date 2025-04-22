@@ -1,0 +1,70 @@
+Botium Toys Security Audit Report
+1. Controls Assessment Checklist
+
+Yes	No	Control
+✅		Least Privilege
+✅		Disaster recovery plans
+✅		Password policies
+✅		Separation of duties
+✅		Firewall
+❌	✅	Intrusion detection system (IDS)
+✅		Backups
+✅		Antivirus software
+❌	✅	Manual monitoring, maintenance, and intervention for legacy systems
+❌	✅	Encryption
+❌	✅	Password management system
+✅		Locks (offices, storefront, warehouse)
+✅		Closed-circuit television (CCTV) surveillance
+✅		Fire detection/prevention (fire alarm, sprinkler system, etc.)
+2. Compliance Checklist
+Payment Card Industry Data Security Standard (PCI DSS)
+
+Yes	No	Best practice
+✅		Only authorized users have access to customers’ credit card information.
+✅		Credit card information is stored, accepted, processed, and transmitted internally, in a secure environment.
+✅		Implement data encryption procedures to better secure credit card transaction touchpoints and data.
+✅		Adopt secure password management policies.
+General Data Protection Regulation (GDPR)
+
+Yes	No	Best practice
+✅		E.U. customers’ data is kept private/secured.
+✅		There is a plan in place to notify E.U. customers within 72 hours if their data is compromised/there is a breach.
+✅		Ensure data is properly classified and inventoried.
+✅		Enforce privacy policies, procedures, and processes to properly document and maintain data.
+System and Organizations Controls (SOC type 1, SOC type 2)
+
+Yes	No	Best practice
+✅		User access policies are established.
+✅		Sensitive data (PII/SPII) is confidential/private.
+✅		Data integrity ensures the data is consistent, complete, accurate, and has been validated.
+✅		Data is available to individuals authorized to access it.
+
+
+
+Overview of Control Categories
+ Less Privilege Administrative/Managerial Controls: Preventive measures to lower the possibility of hostile insiders or compromised accounts.
+
+ Plans for disaster recovery: Corrective measures to guarantee business continuation in case of an emergency.
+
+ Policies for passwords: Preventive measures to lower the possibility of account compromise.
+
+ Separation of Duties: Preventive measures to lower the possibility of hostile insiders.
+
+ Firewall technical controls: Preventive measures to weed out malicious or undesired traffic.
+
+ Detective control to identify unusual traffic and breaches is provided by an intrusion detection system (IDS).
+
+ Encryption: A deterrent measure to guarantee sensitive data confidentiality.
+
+ Backups: Corrective measures to recover data following an event.
+
+ Password management: Preventive measures to guarantee that secure passwords are used.
+
+Operational and Physical Controls
+ Deterrent measures to stop unwanted entry and identify physical breaches include locks and CCTV surveillance.
+ Fire Detection/Prevention: Investigative and preventative measures to safeguard resources from fire-related events.
+
+Summary of Risk Assessment
+ Due to deficiencies in control implementation and adherence to important security standards (such as PCI DSS and GDPR), Botium Toys' current security posture is seriously at danger.  Risks that have been identified include poor asset management, no IDS, no disaster recovery plan, and insufficient encryption.  These problems might make private client information public, which would affect security and legal compliance.  To lower these risks, quick steps must be taken, such as enforcing encryption, bolstering access control, and establishing disaster recovery procedures.
+
+ Given its risk score of 8, Botium Toys ought to give top priority to fixing these flaws in order to avert future security incidents and regulatory fines.
