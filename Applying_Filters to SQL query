@@ -17,8 +17,7 @@ Only attempts made after business hours are targeted by the query thanks to the 
 
  The failed attempts are isolated by the criterion success = FALSE.
 
-
- 2. Get Login Attempts for Particular Dates
+2. Get Login Attempts for Particular Dates
  I needed to investigate login activities on 2022-05-09 and the day prior after a suspicious incident occurred on that day.
 
  I accomplished this by using a SQL query that filtered login attempts according to particular dates.
