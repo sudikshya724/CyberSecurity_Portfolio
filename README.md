@@ -18,9 +18,8 @@ online experience. Through my skills and values, I aim to contribute meaningfull
 
 ## 📁 Sections
 
-- `Projects/` - Security-focused hands-on projects
 - `Certifications/` - Completed courses and certificates from coursera
-- `Resources/` - Notes, tools, and learning materials
+
 
 ---
 
