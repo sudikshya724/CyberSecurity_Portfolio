@@ -7,7 +7,7 @@ Overview of the System
 
  Scope of the Assessment
  The evaluation of the system's access control methods is the specific emphasis of this vulnerability assessment.
- The three-month assessment period, which runs from June 20XX to August 20XX, follows the recommendations made by NIST SP 800-30 Revision 1 for information system risk assessments.
+ The three-month assessment period, which runs from February 2025 to April 2025, follows the recommendations made by NIST SP 800-30 Revision 1 for information system risk assessments.
 Goal of the Assessment
 Large amounts of data, such as campaign, analytics, and client data, are managed and stored by the server, which serves as a centralized data repository.
 For marketing analysis and personalization initiatives, this data is essential. Making sure the server is secure is of utmost importance because it supports marketing operations.
