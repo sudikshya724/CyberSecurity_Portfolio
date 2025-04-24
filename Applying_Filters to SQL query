@@ -1,65 +1,98 @@
 Use Filters in SQL Inquiries
- Overview of the Project
- I was in charge of looking into possible dangers, updating staff PCs, and using SQL to get particular data as part of our company's attempts to strengthen system security.  
-Here are some instances of how I performed security-related duties using filtered SQL queries.
+Overview of the Project
+As part of our company’s efforts to enhance system security, I was responsible for identifying potential security threats, 
+updating staff PCs, and using SQL queries to retrieve specific information from the database.
 
+I used the following schema:
 
+log_in_attempts(user_id, login_date, login_time, success, country)
 
- 1. Recover unsuccessful attempts to log in after business hours
- I created a SQL query to find unsuccessful login attempts made after 18:00 in order to look into a potential security issue that occurred outside of usual business hours.
+employees(employee_id, name, department, office)
 
- To begin, I chose every entry in the log_in_attempts table.  To limit the results to those where login attempts occur, I then used a WHERE clause with an AND condition.
-The condition login_time > '18:00' ensures the query targets only attempts made after business hours.
+Below are examples of how I applied SQL filters to perform my security and operations-related tasks.
 
-The condition success = FALSE isolates failed attempts.
+1. Recover Unsuccessful Login Attempts After Business Hours
+To investigate failed login attempts after 6:00 PM, I used the following query:
 
-Only attempts made after business hours are targeted by the query thanks to the criterion login_time > '18:00'.
+sql
+Copy
+Edit
+SELECT *
+FROM log_in_attempts
+WHERE login_time > '18:00'
+  AND success = FALSE;
+login_time > '18:00' filters attempts outside business hours.
 
- The failed attempts are isolated by the criterion success = FALSE.
+success = FALSE isolates failed attempts.
 
-2. Get Login Attempts for Particular Dates
- I needed to investigate login activities on 2022-05-09 and the day prior after a suspicious incident occurred on that day.
+2. Get Login Attempts for Specific Dates
+To analyze activity on 2022-05-09 and the day before:
 
- I accomplished this by using a SQL query that filtered login attempts according to particular dates.
-
- I added both login_date = '2022-05-09' and login_date = '2022-05-08' to the WHERE clause using the OR operator.
- This made it easier to gather all pertinent login data for additional examination.
+sql
+Copy
+Edit
+SELECT *
+FROM log_in_attempts
+WHERE login_date = '2022-05-09'
+   OR login_date = '2022-05-08';
+This helped gather all relevant data for further investigation.
 
 3. Get Attempts to Login from Outside Mexico
- I found possible issues with access attempts from outside of Mexico after looking over login data.  These required more research.
+To find access attempts from countries other than Mexico:
 
- To filter login attempts from nations other than Mexico, I created a SQL query.
+sql
+Copy
+Edit
+SELECT *
+FROM log_in_attempts
+WHERE country NOT LIKE 'MEX%';
+LIKE 'MEX%' matches variations like "MEX", "MEXICO", etc.
 
- I filtered out any records where the nation was specified as either MEX or MEXICO by combining the NOT keyword with LIKE 'MEX%'.
+NOT excludes them.
 
- With the use of the % wildcard, the query may match any value that begins with "MEX."
-4. Get the Marketing Department Staff Back (East Building)
- I had to determine who works in the Marketing department and in the East building in order to get ready for a planned upgrade on employee machines in that department.
+4. Get Marketing Department Staff in the East Building
+To prepare for an upgrade specific to this group:
 
- To get this data, I constructed a SQL query that selected from the employees table.
+sql
+Copy
+Edit
+SELECT *
+FROM employees
+WHERE department = 'Marketing'
+  AND office LIKE 'East%';
+This identifies Marketing staff located in offices beginning with "East".
 
- I combined the two conditions by applying a WHERE clause with AND:
+5. Obtain Workers in the Sales or Finance Divisions
+To retrieve all employees from either department:
 
- 'Marketing' as the department
+sql
+Copy
+Edit
+SELECT *
+FROM employees
+WHERE department = 'Finance'
+   OR department = 'Sales';
+This ensured the inclusion of both departments in the results.
 
- office LIKE 'East%'
+6. Get Workers Not in the Information Technology Department
+To exclude IT staff from a particular update:
 
- Based on office codes, the LIKE clause with East% assisted in filtering for workers who were based in the East building.
+sql
+Copy
+Edit
+SELECT *
+FROM employees
+WHERE department != 'Information Technology';
+!= or <> works to exclude a specific value.
 
- 5. Obtain Workers in the Sales or Finance Divisions
- I required details about workers in the finance or sales departments for another update.
-I did this by using the OR operator to add a WHERE clause to a query in the employees table:
+In Brief
+Throughout this project, I applied SQL filters aligned with our operational and security goals. 
+By leveraging logical operators (AND, OR, NOT), pattern matching (LIKE, %), and conditional filtering on dates, times, and text values, 
+I was able to:
 
- 'Finance' OR 'Sales' as the department
- This strategy made sure that workers from both divisions contributed to the final product.
+Identify suspicious login attempts
 
- 6. Get Workers Back  Not in the Department of Information Technology
- Employees outside of the information technology department were the focus of the last update.  I used a SQL query to filter out IT workers in order to collect this data.
+Isolate relevant employee groups
 
- In the WHERE clause, I used the NOT operator:
+Enhance the security posture of our organization
 
- 'Information Technology' is not the department.
- Only results from people outside the IT department were displayed as a consequence of this filter.
-In brief
- I filtered data using SQL queries throughout this project in accordance with particular operational and security needs.  I used pattern matching using LIKE and %, as well as logical operators like AND, OR, and NOT, while working with the log_in_attempts and employees tables.  
-These filters made it possible to precisely focus the data required to recognize security risks and efficiently manage staff systems.
