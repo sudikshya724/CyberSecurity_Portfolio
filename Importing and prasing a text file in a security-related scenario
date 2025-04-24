@@ -9,49 +9,37 @@ To begin the process, I assigned the file name as a string to a variable called 
 Using the with statement and the open() function in read mode ("r"), I opened the allow_list.txt file. The with statement ensures that the file is properly closed after its contents are read, 
 and the as keyword stores the file object in a variable named file.
 
-python
-Copy
-Edit
+
 import_file = "allow_list.txt"
 with open(import_file, "r") as file:
 Step 2: Read File Contents
 Inside the with block, I used the .read() method to read the full contents of the file and store them as a single string. This string was assigned to a variable named ip_addresses.
 
-python
-Copy
-Edit
+
     ip_addresses = file.read()
 Step 3: Convert String to a List
 To easily manipulate the individual IP addresses, I used the .split() method to convert the string into a list. Since the addresses were separated by whitespace, 
 .split() naturally created a list of IPs.
 
-python
-Copy
-Edit
+
 ip_addresses = ip_addresses.split()
 Step 4: Iterate Through the Remove List
 I created a for loop to iterate over each IP address in the remove_list. This loop checks whether each element exists in the ip_addresses list.
 
-python
-Copy
-Edit
+
 for element in remove_list:
 Step 5: Remove IPs from the Allow List
 Within the loop, I added a condition to verify that the element exists in the ip_addresses list before attempting to remove it. This prevents errors from trying to 
 remove non-existent items.
 
-python
-Copy
-Edit
+
     if element in ip_addresses:
         ip_addresses.remove(element)
 Step 6: Update the File with Revised IP List
 After cleaning the list, I converted it back into a string using the .join() method, with each IP address placed on a new line. Then, I used another with block and opened 
 the file in write mode ("w") to overwrite the existing contents with the updated list.
 
-python
-Copy
-Edit
+
 ip_addresses = "\n".join(ip_addresses)
 
 with open(import_file, "w") as file:
