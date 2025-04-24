@@ -2,19 +2,51 @@ In this project, I took on the role of a security specialist, ensuring proper co
 Using various Linux commands, I verified existing permission settings, interpreted what they meant, and made adjustments to access controls where necessary. 
 This approach helps maintain a secure environment by limiting unauthorized access.
 
-Check file and directory details
+Checking File and Directory Details
+To check the details of files and directories, use:
+
 ls -la /home/researcher2/projects
+Understanding the Permissions String
+Each file or directory listed will show a 10-character permissions string. Here's how to interpret it:
 
-Explain the permissions string
--rw-rw-rw-
+1st character: File type
 
-Modify file permissions
-chmod o-w /home/researcher2/projects/project_k.txt
+- = regular file
 
-Modify permissions on a hidden file
-chmod 440 /home/researcher2/projects/.project_x.txt
+d = directory
 
-Modify directory permissions
+l = symbolic link
+
+2nd–4th characters: Owner’s permissions
+
+r = read
+
+w = write
+
+x = execute
+
+5th–7th characters: Group’s permissions
+
+8th–10th characters: Others’ permissions
+
+Example:
+-rw-r--r--
+This means it's a regular file where the owner can read/write, while the group and others can only read it.
+
+Changing File and Directory Permissions
+1. Remove write permission from others on a file:
+
+
+chmod o-w /home/researcher2/projects/project_m.txt
+2. Remove write permission from others on a hidden file:
+(Note: There was a typo in the original command — missing space and misnamed file.)
+
+
+chmod o-w /home/researcher2/projects/.project_x.txt
+3. Change directory permissions to 700 (owner: all access, others: no access):
+(Note: There was a typo — chrod should be chmod.)
+
+
 chmod 700 /home/researcher2/projects/drafts
 
 Summary
