@@ -14,9 +14,7 @@ Below are examples of how I applied SQL filters to perform my security and opera
 1. Recover Unsuccessful Login Attempts After Business Hours
 To investigate failed login attempts after 6:00 PM, I used the following query:
 
-sql
-Copy
-Edit
+
 SELECT *
 FROM log_in_attempts
 WHERE login_time > '18:00'
@@ -28,9 +26,7 @@ success = FALSE isolates failed attempts.
 2. Get Login Attempts for Specific Dates
 To analyze activity on 2022-05-09 and the day before:
 
-sql
-Copy
-Edit
+
 SELECT *
 FROM log_in_attempts
 WHERE login_date = '2022-05-09'
@@ -40,9 +36,7 @@ This helped gather all relevant data for further investigation.
 3. Get Attempts to Login from Outside Mexico
 To find access attempts from countries other than Mexico:
 
-sql
-Copy
-Edit
+
 SELECT *
 FROM log_in_attempts
 WHERE country NOT LIKE 'MEX%';
@@ -53,9 +47,7 @@ NOT excludes them.
 4. Get Marketing Department Staff in the East Building
 To prepare for an upgrade specific to this group:
 
-sql
-Copy
-Edit
+
 SELECT *
 FROM employees
 WHERE department = 'Marketing'
@@ -65,9 +57,7 @@ This identifies Marketing staff located in offices beginning with "East".
 5. Obtain Workers in the Sales or Finance Divisions
 To retrieve all employees from either department:
 
-sql
-Copy
-Edit
+
 SELECT *
 FROM employees
 WHERE department = 'Finance'
@@ -77,9 +67,7 @@ This ensured the inclusion of both departments in the results.
 6. Get Workers Not in the Information Technology Department
 To exclude IT staff from a particular update:
 
-sql
-Copy
-Edit
+
 SELECT *
 FROM employees
 WHERE department != 'Information Technology';
