@@ -5,67 +5,38 @@ To maintain this list, IP addresses that should no longer have access are stored
 by removing any IP addresses found in the remove list.
 
 
-//Task 1
-
-import_file = "login.txt"
-
-# First line of the `with` statement
-with open(import_file, "r") as file:
-    pass  # Placeholder since it's only the first line
- //Task 2
-import_file = "login.txt"
-with open(import_file, "r") as file:
-    text = file.read()
-
-print(text)
- //Task 3
-
-import_file = "login.txt"
-
-with open(import_file, "r") as file:
-    text = file.read()
-
-print(text.split("\n"))  # Or: print(text.splitlines())
-Question 1 Answer:
-Before using .split(), the log is one long string. After using .split("\n"), each log entry is stored as an element in a list, making it easier to analyze individual entries.
-
-// Task 4
-
-import_file = "login.txt"
-missing_entry = "jrafael,192.168.243.140,4:56:27,2022-05-09"
-
-with open(import_file, "a") as file:
-    file.write("\n" + missing_entry)  # Appends to the end on a new line
-
-with open(import_file, "r") as file:
-    text = file.read()
-
-print(text)
-Question 2 Answer:
-The missing entry was appended at the end of the file, which shows that opening the file in "a" mode adds new content without overwriting existing entries.
-
- //Task 5
-
+# Step 1: Assign the file name
 import_file = "allow_list.txt"
 
-ip_addresses = "192.168.218.160 192.168.97.225 192.168.145.158 192.168.108.13 192.168.60.153 192.168.96.200 192.168.247.153 192.168.3.252 192.168.116.187 192.168.15.110 192.168.39.246"
+# Step 2: Open the file in read mode
+file = open(import_file, "r")
 
-print(import_file)
-print(ip_addresses)
- //Task 6
-import_file = "allow_list.txt"
-ip_addresses = "192.168.218.160 192.168.97.225 192.168.145.158 192.168.108.13 192.168.60.153 192.168.96.200 192.168.247.153 192.168.3.252 192.168.116.187 192.168.15.110 192.168.39.246"
+# Step 3: Read all the contents of the file
+ip_addresses = file.read()
 
-with open(import_file, "w") as file:
-    file.write(ip_addresses)
-//Task 7
+# Step 4: Close the file
+file.close()
 
-import_file = "allow_list.txt"
+# Step 5: Split the string into a list
+ip_addresses = ip_addresses.split()
 
-with open(import_file, "r") as file:
-    text = file.read()
+# Step 6: Remove each item in remove_list from the list
+remove_list = ["192.168.1.1", "10.0.0.2"]  # You can replace with your actual list
+for item in remove_list:
+    if item in ip_addresses:
+        ip_addresses.remove(item)
 
-print(text)
+# Step 7: Join the list back into a string separated by newlines
+ip_addresses = "\n".join(ip_addresses)
+
+# Step 8: Open the file again in write mode
+file = open(import_file, "w")
+
+# Step 9: Write the updated IP list back into the file
+file.write(ip_addresses)
+
+# Step 10: Close the file again
+file.close()
 
 Summary
 This algorithm efficiently manages access control by automatically removing unauthorized IP addresses from the allow_list.txt file. 
